@@ -23,8 +23,12 @@ const countSimpleNums = (n) => {
     return result;
 }
 
-const simpleNum = isSimple(89);
-const countNums = countSimpleNums(7920);
-
-console.log(simpleNum)
-console.log(countNums)
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  readline.question(`Input number: `, number => {
+    console.log(isSimple(+number));
+    console.log(countSimpleNums(+number));
+    readline.close();
+  });
