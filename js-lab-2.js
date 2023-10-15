@@ -1,5 +1,6 @@
 const sieveOfEratosthenes = (n) => {
     const array = new Array(n + 1).fill(true);
+    array[0] = array[1] = false;
     for (let i = 2; i * i < n; i++) {
         if (array[i]) {
             for (let j = i * i; j <= n; j+=i) { 
@@ -15,12 +16,7 @@ const isSimple = (n) => {
 }
 
 const countSimpleNums = (n) => {
-    const result = [];
-    const array = sieveOfEratosthenes(n);
-    for (let i = 2; i <= n; i++) {
-        if (array[i]) result.push(i)
-    }
-    return result;
+    return sieveOfEratosthenes(n).filter(x => x).length;
 }
 
 const readline = require('readline').createInterface({
@@ -28,7 +24,7 @@ const readline = require('readline').createInterface({
     output: process.stdout,
   });
   readline.question(`Input number: `, number => {
-    console.log(isSimple(+number));
-    console.log(countSimpleNums(+number));
+    console.log('Prime number? ', isSimple(+number)? 'Yes': 'No');
+    console.log(`Count of prime numbers before ${number}: `, countSimpleNums(+number));
     readline.close();
   });
