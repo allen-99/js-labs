@@ -16,7 +16,7 @@ const task = (o) => {
         return (today.getDate() < 10 ? '0' + today.getDate() : today.getDate()) + '.' + (today.getMonth() + 1 < 10 ? '0' + today.getMonth() + 1 : today.getMonth() + 1) + '.' + today.getFullYear();
     }
     let count = 0;
-    while (o !== null) {
+    while (o.__proto__ !== null) {
         o = o.__proto__;
         count++;
     }
