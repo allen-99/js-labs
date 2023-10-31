@@ -5,7 +5,7 @@
 
 async function task(x) {
   return x.name;
-}
+};
 
 const test = {
   name: Promise.resolve('parapampampam')
