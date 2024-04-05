@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Страница HTML5</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <article></article>
+    
+    <script>
+      const bt = document.getElementById('bt');
+      bt.addEventListener('click', () => create);
+
+      function create() {
+          for (let i=0; i<1000; i++) {
+              document.querySelector('article').append(document.createElement('div', id=i));
+          }
+      }
+    </script>
+    
+    <button id="bt">Выполнить задание</button>
+  </body>
+</html>
